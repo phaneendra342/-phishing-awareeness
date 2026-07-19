@@ -3,6 +3,11 @@ import sqlite3
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return '''<h1>Welcome</h1>
+<p>Use <a href="/profile?name=Guest">/profile</a> or submit a POST to <code>/login</code>.</p>'''
+
 # VULNERABILITY 1: SQL Injection (SQLi)
 @app.route('/login', methods=['POST'])
 def login():

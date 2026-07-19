@@ -4,6 +4,11 @@ import html
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return '''<h1>Welcome</h1>
+<p>Use <a href="/profile?name=Guest">/profile</a> or submit a POST to <code>/login</code>.</p>'''
+
 # REMEDIATION 1: Parameterized Queries (Fixes SQL Injection)
 @app.route('/login', methods=['POST'])
 def login():
